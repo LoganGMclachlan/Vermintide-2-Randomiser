@@ -1,0 +1,20 @@
+:root{
+  background-image: url("./assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+}
+
+body{
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.menu{
+  width: 25%;
+  height: 100vh;
+  background-color: rgb(97, 97, 97);
+  padding: 10px;
+  box-sizing: border-box;
+}
