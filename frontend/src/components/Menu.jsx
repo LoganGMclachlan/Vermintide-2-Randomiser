@@ -6,11 +6,10 @@ export default function Menu(){
     <div className="menu">
         <img src={title} className="title-img"/>
         <h1>Randomiser</h1>
-        <hr/>
         <RandomiserForm/>
         <p>Welcome to the Vermintide 2 randomiser. 
             Use this tool to generate random weapons 
-            and career skill selections.
+            and career talent selections.
         </p>
         <p>
             If you find a bug or just want to give some 

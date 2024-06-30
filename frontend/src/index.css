@@ -32,7 +32,6 @@ body{
 }
 
 .menu p{
-  font-size: 1.1em;
   color: white;
 }
 .menu br{
@@ -56,7 +55,7 @@ body{
   background-color: rgb(137, 13, 13);
   margin-top: 10px;
   width: 100%;
-  padding: 15px;
+  padding: 12px;
   font-size: 1.5em;
   border: 3px solid;
 }
