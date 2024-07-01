@@ -2,7 +2,6 @@
   background-image: url("./assets/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
   font-family: CasionAntique;
 }
 
@@ -26,7 +25,7 @@ body{
 }
 .menu h1{
   text-align: center;
-  font-size: 3.5em;
+  font-size: 3em;
   font-weight: lighter;
   margin: 0px;
 }
@@ -58,4 +57,35 @@ body{
   padding: 12px;
   font-size: 1.5em;
   border: 3px solid;
+}
+
+.loadout{
+  margin-left:auto;
+  margin-right: auto;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  align-content:baseline;
+  width: 40%;
+  row-gap: 0px;
+}
+.loadout div, .loadout h1, .loadout h2{
+  width: 100%;
+  background-color: rgba(97, 97, 97,0.9);
+  padding: 10px;
+  height: fit-content;
+  box-sizing: border-box;
+  text-align: center;
+}
+.loadout h1{
+  text-align: center;
+}
+.loadout h2{width: 48%;}
+
+.talents h1{margin: 0px;}
+.talents div{
+  background-color: rgb(193, 193, 19);
+  border-top: 2px solid;
+  font-size: 1.3em;
 }
