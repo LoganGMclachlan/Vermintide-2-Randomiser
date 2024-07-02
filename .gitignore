@@ -25,3 +25,4 @@ dist-ssr
 .vscode
 .env
 v2_randomiser.session.sql
+db_checklist.txt

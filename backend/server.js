@@ -40,8 +40,8 @@ app.get('/getWeapons', (req, res) => {
     // query includes 2 joins to connect 3 tables
     const query = `SELECT weapons.weapon_name, weapons.weapon_type 
         FROM weapons, career_weapons, careers 
-        WHERE careers.id = career_weapons.career_id & 
-        career_weapons.weapon_id = weapons.id &
+        WHERE careers.id = career_weapons.career_id and 
+        career_weapons.weapon_id = weapons.id and
         careers.id = ${req.body.id}`
     db.query(query, (err,data) => {
         if (err) return res.json(err)
