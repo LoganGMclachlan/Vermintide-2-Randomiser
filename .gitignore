@@ -23,4 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 .vscode
+.env
 v2_randomiser.session.sql
