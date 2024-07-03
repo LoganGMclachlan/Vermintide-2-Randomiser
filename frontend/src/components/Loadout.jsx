@@ -1,4 +1,4 @@
-export default function Loadout(){
+export default function Loadout({loadout}){
     return(
     <div className="loadout">
         <h1>Grail Knight</h1>

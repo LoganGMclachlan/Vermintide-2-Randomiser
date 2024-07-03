@@ -1,12 +1,13 @@
 import title from "../assets/logo.png"
 import RandomiserForm from "./RandomiserForm"
 
-export default function Menu(){
+export default function Menu({setLoadout}){
+
     return(
     <div className="menu">
         <img src={title} className="title-img"/>
         <h1>Randomiser</h1>
-        <RandomiserForm/>
+        <RandomiserForm setLoadout={setLoadout}/>
         <p>Welcome to the Vermintide 2 randomiser. 
             Use this tool to generate random weapons 
             and career talent selections.
