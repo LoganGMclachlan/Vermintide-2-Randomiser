@@ -1,18 +1,17 @@
 export default function Loadout({loadout}){
     return(
     <div className="loadout">
-        <h1>Grail Knight</h1>
-        <h2>Greatsword</h2>
-        <h2>Sword & Mace</h2>
+        {loadout && <>
+        <h1>{loadout.career.hero} - {loadout.career.title}</h1>
+        <h2>{loadout.weapon1}</h2>
+        <h2>{loadout.weapon2}</h2>
         <div className="talents" style={{"padding":"0px"}}>
             <h1>Talents</h1>
-            <div>talent title</div>
-            <div>talent title</div>
-            <div>talent title</div>
-            <div>talent title</div>
-            <div>talent title</div>
-            <div>talent title</div>
+            {loadout.talents.map(talent => <div key={talent.id}>
+                {talent.title}
+            </div>)}
         </div>
+        </>}
     </div>
     )
 }

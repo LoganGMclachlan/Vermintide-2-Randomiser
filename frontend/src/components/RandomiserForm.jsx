@@ -1,16 +1,17 @@
 import { useState } from "react"
 
 export default function RandomiserForm({setLoadout}){
-    const [career,setCareer] = useState(1)// stores id of desired career loadout, 0 = random
+    const [career,setCareer] = useState(0)// stores id of desired career loadout, 0 = random
 
     const randomise = async e => {
         e.preventDefault()
+        let id = career
         // get random number if 0 selected
-
+        if(career == 0){id = Math.floor(Math.random() * 4)+1}
         // get career, weapon & talent info form db
-        const careerData = getData("getCareer")
-        const talents = await getData("getTalents")
-        const weapons = getData("getWeapons")
+        const careerData = await getData("getCareer",id)
+        const talents = await getData("getTalents",id)
+        const weapons = await getData("getWeapons",id)
 
         // select random talent options
         let randomTalents = []
@@ -20,16 +21,24 @@ export default function RandomiserForm({setLoadout}){
             randomTalents.push(talents[i+num])
         }
 
-        // select random weapons
+        const chooseRandomWeapon = type => {
+            const filtered = weapons.filter(weapon => weapon.weapon_type == type)
+            console.log(filtered)
+            return filtered[Math.floor(Math.random() * filtered.length)].weapon_name
+        }
 
         // set loadout
-    }
+        setLoadout({"career":careerData[0],
+            "weapon1":chooseRandomWeapon("melee"),
+            "weapon2":chooseRandomWeapon(careerData[0].second_weapon_type),
+            "talents":randomTalents})
+    }    
 
-    const getData = async route => {
+    const getData = async (route,id) => {
         return await fetch(`http://localhost:8080/${route}`,{
             method:'POST',
             headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({id:career})
+            body: JSON.stringify({id:id})
         })
         .then(res => res.json())
         .catch(err => console.error(err))
@@ -39,8 +48,8 @@ export default function RandomiserForm({setLoadout}){
     <form className="randomiser-form" onSubmit={e => randomise(e)}>
         <hr/>
         <h2>Select Career</h2>
-        <select onSelect={e => setCareer(e.target.value)}>
-            <option default value={1}>Random</option>
+        <select onChange={e => setCareer(e.target.value)}>
+            <option default value={0}>Random Career</option>
             <option value={1}>Mercanery</option>
             <option value={2}>Huntsman</option>
             <option value={3}>Footknight</option>
