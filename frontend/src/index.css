@@ -1,5 +1,6 @@
 :root{
   background-image: url("./assets/background.jpg");
+  background-color: grey;
   background-repeat: no-repeat;
   background-size: cover;
   font-family: CasionAntique;
@@ -14,10 +15,11 @@ body{
   width: 100%;
   padding: 0px;
   margin: 0px;
+  display: flex;
 }
 
 .menu{
-  width: 25%;
+  width: 30%;
   height: 100vh;
   background-color: rgb(97, 97, 97);
   padding: 15px;
@@ -68,7 +70,8 @@ body{
   justify-content:space-between;
   align-content:baseline;
   width: 40%;
-  row-gap: 0px;
+  row-gap: 10px;
+  max-height: 100vh;
 }
 .loadout div, .loadout h1, .loadout h2{
   width: 100%;
@@ -77,6 +80,7 @@ body{
   height: fit-content;
   box-sizing: border-box;
   text-align: center;
+  margin: 0px;
 }
 .loadout h1{
   text-align: center;
@@ -88,4 +92,21 @@ body{
   background-color: rgb(193, 193, 19);
   border-top: 2px solid;
   font-size: 1.3em;
+}
+
+@media only screen and (max-width:800px){
+  .menu h1{font-size: 2em;}
+  .loadout{width: 60%;}
+}
+
+@media only screen and (max-width:650px){
+  .menu{
+    width: 100%;
+    border-right: 2px solid;}
+  .loadout{
+    width: 100%;
+    margin: 0px;
+    justify-content:stretch;
+  }
+  .loadout h2{width: 100%;}
 }
