@@ -6,9 +6,9 @@ export default function RandomiserForm({setLoadout}){
     const randomise = async e => {
         e.preventDefault()
         let id = career
-        // get random number if 0 selected
+        // get random career id if 0 selected
         if(career == 0){id = Math.floor(Math.random() * 4)+1}
-        // get career, weapon & talent info form db
+        
         const careerData = await getData("getCareer",id)
         const talents = await getData("getTalents",id)
         const weapons = await getData("getWeapons",id)
@@ -23,11 +23,9 @@ export default function RandomiserForm({setLoadout}){
 
         const chooseRandomWeapon = type => {
             const filtered = weapons.filter(weapon => weapon.weapon_type == type)
-            console.log(filtered)
             return filtered[Math.floor(Math.random() * filtered.length)].weapon_name
         }
 
-        // set loadout
         setLoadout({"career":careerData[0],
             "weapon1":chooseRandomWeapon("melee"),
             "weapon2":chooseRandomWeapon(careerData[0].second_weapon_type),
@@ -54,6 +52,8 @@ export default function RandomiserForm({setLoadout}){
             <option value={2}>Huntsman</option>
             <option value={3}>Footknight</option>
             <option value={4}>Grail Knight</option>
+            <option value={5}>Ranger Vetaren</option>
+            <option value={6}>Iron Breaker</option>
         </select>
         <button type="submit">GENERATE!</button>
         <hr/>
