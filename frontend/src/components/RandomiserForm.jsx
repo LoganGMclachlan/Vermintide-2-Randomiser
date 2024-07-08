@@ -7,7 +7,7 @@ export default function RandomiserForm({setLoadout}){
         e.preventDefault()
         let id = career
         // get random career id if 0 selected
-        if(career == 0){id = Math.floor(Math.random() * 4)+1}
+        if(career == 0){id = Math.floor(Math.random() * 8)+1}
         
         const careerData = await getData("getCareer",id)
         const talents = await getData("getTalents",id)
@@ -54,6 +54,8 @@ export default function RandomiserForm({setLoadout}){
             <option value={4}>Grail Knight</option>
             <option value={5}>Ranger Vetaren</option>
             <option value={6}>Iron Breaker</option>
+            <option value={7}>Slayer</option>
+            <option value={8}>Outcast Engineer</option>
         </select>
         <button type="submit">GENERATE!</button>
         <hr/>
