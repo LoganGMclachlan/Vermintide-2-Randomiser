@@ -64,7 +64,8 @@ body{
 .loadout{
   margin-left:auto;
   margin-right: auto;
-  margin-top: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content:space-between;
@@ -92,6 +93,8 @@ body{
   background-color: rgb(193, 193, 19);
   border-top: 2px solid;
   font-size: 1.3em;
+  height: 45px;
+  justify-content: center;
 }
 
 @media only screen and (max-width:800px){
@@ -100,6 +103,10 @@ body{
 }
 
 @media only screen and (max-width:650px){
+  :root{
+    background-image: none;
+    background-color: rgb(97, 97, 97);
+  }
   .menu{
     width: 100%;
     border-right: 2px solid;}
@@ -107,6 +114,7 @@ body{
     width: 100%;
     margin: 0px;
     justify-content:stretch;
+    row-gap: 0px;
   }
   .loadout h2{width: 100%;}
 }
